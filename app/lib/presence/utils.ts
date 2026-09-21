@@ -23,7 +23,7 @@ export function timeAgo(timestamp: number): string {
 export function getDiscordAvatarUrl(user: DiscordUser): string {
   if (!user.avatar) {
     const defaultIndex = user.discriminator === "0"
-      ? (Number(BigInt(user.id) >> 22n) % 6)
+      ? Number(BigInt(user.id) >> BigInt(22)) % 6)
       : Number(user.discriminator) % 5;
     return `https://cdn.discordapp.com/embed/avatars/${defaultIndex}.png`;
   }

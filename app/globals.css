@@ -1,0 +1,222 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --background: #060206;
+  --foreground: #f4f4f5;
+  --pink-accent: #f472b6;
+  --pink-glow: rgba(244, 114, 182, 0.6);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #060206;
+  color: var(--foreground);
+  font-family: var(--font-manrope), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+::selection {
+  background: rgba(244, 114, 182, 0.35);
+  color: #ffffff;
+}
+
+.bg-wrap {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 50% at 50% 35%, rgba(244, 114, 182, 0.22), transparent 75%),
+    radial-gradient(50% 40% at 75% 75%, rgba(219, 39, 119, 0.15), transparent 70%),
+    radial-gradient(40% 40% at 20% 80%, rgba(236, 72, 153, 0.12), transparent 65%),
+    #050205;
+}
+
+#bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+#bg.loaded {
+  opacity: 1;
+}
+
+.heading-font {
+  font-family: var(--font-syne), var(--font-poppins), system-ui, sans-serif;
+}
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.avatar-gradient-text {
+  background: linear-gradient(-45deg, #ffffff 0%, #fbcfe8 20%, #f472b6 45%, #ec4899 65%, #f472b6 85%, #ffffff 100%);
+  background-size: 300% 300%;
+  animation: gradient-flow 6s ease-in-out infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 24px rgba(244, 114, 182, 0.6));
+}
+
+.source-gradient-text {
+  background: linear-gradient(-45deg, #ffffff 0%, #fbcfe8 20%, #e2a4c4 45%, #e7117c 65%, #50092e 85%, #c48cb1 100%);
+  background-size: 300% 300%;
+  animation: gradient-flow 6s ease-in-out infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 24px rgba(255, 255, 255, 0.6));
+}
+
+.glass-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(244, 114, 182, 0.3);
+  box-shadow: 0 12px 35px -5px rgba(244, 114, 182, 0.15);
+}
+
+.glass-pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 9999px;
+  padding: 0.45rem 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.glass-pill:hover {
+  background: rgba(244, 114, 182, 0.1);
+  border-color: rgba(244, 114, 182, 0.3);
+  color: #fbcfe8 !important;
+  transform: translateY(-1px);
+}
+
+.marquee-wrap {
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 0.75rem;
+  width: max-content;
+  animation: marquee 26s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.fade-in-up {
+  opacity: 0;
+  animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.08s;
+}
+
+.delay-2 {
+  animation-delay: 0.16s;
+}
+
+.delay-3 {
+  animation-delay: 0.24s;
+}
+
+.delay-4 {
+  animation-delay: 0.32s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes lyricFade {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+    transform: translateY(2px);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+.animate-lyric-fade {
+  animation: lyricFade 0.35s ease forwards;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(244, 114, 182, 0.3);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(244, 114, 182, 0.6);
+}

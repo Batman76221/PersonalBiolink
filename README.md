@@ -10,13 +10,6 @@ WebGL background.
 
 ------------------------------------------------------------------------
 
-## What to change
-- My discord id: 1447292903654428733
-- My github links.
-- My username
-- Any more info you may find of me.
-
-
 ## Features
 
 ### Personal profile
@@ -1195,6 +1188,7 @@ Built with:
 
 Personal site/project maintained by **Terrified**.
 
+------------------------------------------------------------------------
 
 ## Quick Start
 
